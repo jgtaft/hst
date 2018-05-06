@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Random HST</title>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<style>
+h1 {
+  font-family: "Oswald", sans-serif;
+}
+#input{
+  padding: 20px;
+  float:left;
+}
+button{
+  background-color: #000000;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  border:none;
+  display: inline-block;
+  padding: 5px 30px;
+  margin: 5px 0px;
+}
+</style>
+</head>
+<body>
+  <h1>random HST</h1>
+  <div id="input" >
+    size &nbsp;<input id="s" type="text" value="4" size=4 pattern="[0-9]{1,2}"><br/>
+    <button onclick="showHST(s.value)">All Random</button><br/>
+    <button onclick="showHSTref(s.value)">Reflectional Symmetry</button><br/>
+    <button onclick="showHSTrot(s.value)">Rotational Symmetry</button>
+  </div>
+  <div id="hst" ></div>
+  <script src="hst.js"></script>
+</body>
+</html>
