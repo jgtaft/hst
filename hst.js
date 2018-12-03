@@ -1,11 +1,12 @@
-var svg = d3.select("#hst").append("svg")
-  .attr("height", 700)
-  .attr("width", 700);
+var svg = d3.select("#hst").append("svg");
+  // .attr("height", 700)
+  // .attr("width", 700);
 
 var hsts = ["0,0 30,0 0,30", "30,0 30,30 0,30", "0,0 30,0 30,30", "0,0 30,30 0,30"];
 
 function showHST(n){
   svg.selectAll("polygon").remove();
+  svg.attr("height", n*30 + 30).attr("width", n*30+30);
 
   var hstArr = [];
   for (i=0; i<n; i++){
@@ -26,6 +27,7 @@ function showHST(n){
 }
 
 function showHSTrot(n){
+  svg.attr("height", n*30+30).attr("width", n*30+30);
   svg.selectAll("polygon").remove();
   svg.selectAll("g").remove();
   //need even number size
@@ -88,6 +90,7 @@ function showHSTrot(n){
 }
 
 function showHSTref(n){
+  svg.attr("height", n*30+30).attr("width", n*30+30);
   svg.selectAll("polygon").remove();
   svg.selectAll("g").remove();
   //need even number size
@@ -150,3 +153,17 @@ function showHSTref(n){
 }
 
 showHST(4,4);
+
+function saveSvg(svgEl, name) {
+    svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    var svgData = svgEl.outerHTML;
+    var preface = '<?xml version="1.0" standalone="no"?>\r\n';
+    var svgBlob = new Blob([preface, svgData], {type:"image/svg+xml;charset=utf-8"});
+    var svgUrl = URL.createObjectURL(svgBlob);
+    var downloadLink = document.createElement("a");
+    downloadLink.href = svgUrl;
+    downloadLink.download = name;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+}
