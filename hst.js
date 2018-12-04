@@ -36,10 +36,12 @@ function showHSTrot(n){
   var hstRotArr = [];
   for (i=1; i<(n/2)+1; i++){
     for (j=1; j<(n/2)+1; j++){
-      var obj = {x: i * 30, y: j*30, b: hsts[Math.floor(Math.random()*Math.floor(4))]};
+      var obj = {x: i*30, y: j*30, b: hsts[Math.floor(Math.random()*Math.floor(4))]};
       hstRotArr.push(obj);
     }
   }
+
+  var t = (n*30)-30;
 
   var g1 = svg.append("g");
   var hst1 = g1.selectAll("polygon").data(hstRotArr);
@@ -51,6 +53,8 @@ function showHSTrot(n){
     })
     .attr("fill", "black");
 
+  g1.attr("transform", "translate("+-30 + "," +-30+")");
+
   var g2 = svg.append("g");
   var hst2 = g2.selectAll("polygon").data(hstRotArr);
   hst2.enter().append("polygon")
@@ -61,7 +65,7 @@ function showHSTrot(n){
     })
     .attr("fill", "black");
 
-  g2.attr("transform", "translate("+n*30+","+0+") rotate(90 30 30)");
+  g2.attr("transform", "translate("+t+","+-30+") rotate(90 30 30)");
 
   var g3 = svg.append("g");
   var hst3 = g3.selectAll("polygon").data(hstRotArr);
@@ -73,7 +77,7 @@ function showHSTrot(n){
     })
     .attr("fill", "black");
 
-  g3.attr("transform", "translate("+n*30+","+n*30+") rotate(180 30 30)");
+  g3.attr("transform", "translate("+t+","+t+") rotate(180 30 30)");
 
   var g4 = svg.append("g");
   var hst4 = g4.selectAll("polygon").data(hstRotArr);
@@ -85,7 +89,7 @@ function showHSTrot(n){
     })
     .attr("fill", "black");
 
-  g4.attr("transform", "translate("+0+","+n*30+") rotate(-90 30 30)");
+  g4.attr("transform", "translate("+-30+","+t+") rotate(-90 30 30)");
 
 }
 
@@ -114,6 +118,8 @@ function showHSTref(n){
     })
     .attr("fill", "black");
 
+  g1.attr("transform", "translate("+-30+","+-30+")");
+
   var g2 = svg.append("g");
   var hst2 = g2.selectAll("polygon").data(hstRefArr);
   hst2.enter().append("polygon")
@@ -124,7 +130,7 @@ function showHSTref(n){
     })
     .attr("fill", "black");
 
-  g2.attr("transform", "translate("+((30*n)+60)+","+0+") scale(-1,1)");
+  g2.attr("transform", "translate("+((30*n)+30)+","+-30+") scale(-1,1)");
 
   var g3 = svg.append("g");
   var hst3 = g3.selectAll("polygon").data(hstRefArr);
@@ -136,7 +142,7 @@ function showHSTref(n){
     })
     .attr("fill", "black");
 
-  g3.attr("transform", "translate("+((30*n)+60)+","+((30*n)+60)+") scale(-1,-1)");
+  g3.attr("transform", "translate("+((30*n)+30)+","+((30*n)+30)+") scale(-1,-1)");
 
   var g4 = svg.append("g");
   var hst4 = g4.selectAll("polygon").data(hstRefArr);
@@ -148,7 +154,7 @@ function showHSTref(n){
     })
     .attr("fill", "black");
 
-  g4.attr("transform", "translate("+0+","+((30*n)+60)+") scale(1,-1)");
+  g4.attr("transform", "translate("+-30+","+((30*n)+30)+") scale(1,-1)");
 
 }
 

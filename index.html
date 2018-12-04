@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>Random HST</title>
+<title>RANDOM HST</title>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 <style>
@@ -8,10 +8,14 @@ h1 {
   font-family: "Oswald", sans-serif;
   margin-left:3%;
 }
+p {
+  width: 90%;
+  margin: 5px 3% 5px 3%;
+}
 #input{
   float:right;
   width: 18%;
-  margin: 10px 40px 0px 0px;
+  margin: 10px 100px 10px 0px;
 }
 button{
   background-color: #000000;
@@ -20,6 +24,7 @@ button{
   font-size: 14px;
   border:none;
   display: inline-block;
+  width:200px;
   padding: 5px 20px;
   margin: 5px 0px;
 }
@@ -40,6 +45,9 @@ svg{
 </head>
 <body>
   <h1>random HST</h1>
+  <p>Generate random half-square triangle blocks. Choose all random, or two different
+  types of symmetry. If you see something you like, download or save it! Clicking
+ another button will make it disappear forever.</p>
   <div id="input" >
     size &nbsp;<input id="s" type="text" value="4" size=4 pattern="[0-9]{1,2}"><br/>
     <button onclick="showHST(s.value)">All Random</button><br/>
@@ -50,7 +58,7 @@ svg{
   <div id="hst" ></div>
   <script src="hst.js"></script>
 
-  <p id="foot"> TEXT-TILE is made by <a href="https://jgtaft.github.io">Jessie Garrett Taft</a>. This work is available under
+  <p id="foot"> RANDOM HST is made by <a href="https://jgtaft.github.io">Jessie Garrett Taft</a>. This work is available under
     a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial ShareAlike</a> license. </p>
 
 </body>
